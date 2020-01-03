@@ -17,15 +17,14 @@ namespace GR
 
       // Listen to MouseLeftButtonDown event to determine if NumericUpDown should move focus to itself
       EventManager.RegisterClassHandler(typeof(NumericUpDown),
-          Mouse.MouseDownEvent, new MouseButtonEventHandler(NumericUpDown.OnMouseLeftButtonDown), true);
+          Mouse.MouseDownEvent, new MouseButtonEventHandler(OnMouseLeftButtonDown), true);
 
       DefaultStyleKeyProperty.OverrideMetadata(typeof(NumericUpDown), new FrameworkPropertyMetadata(typeof(NumericUpDown)));
     }
 
-    public NumericUpDown()
-        : base()
+    public NumericUpDown(): base()
     {
-      updateValueString();
+      UpdateValueString();
     }
 
     #region Properties
@@ -70,7 +69,7 @@ namespace GR
 
       control.OnValueChanged(e);
 
-      control.updateValueString();
+      control.UpdateValueString();
     }
 
     /// <summary>
@@ -241,7 +240,7 @@ namespace GR
       control.CoerceValue(MinimumProperty);
       control.CoerceValue(MaximumProperty);
       control.CoerceValue(ValueProperty);
-      control.updateValueString();
+      control.UpdateValueString();
     }
 
     private static bool ValidateDecimalPlaces(object value)
@@ -278,7 +277,7 @@ namespace GR
     public static readonly DependencyProperty ValueStringProperty =
         DependencyProperty.Register("ValueString", typeof(string), typeof(NumericUpDown), new FrameworkPropertyMetadata());
 
-    private void updateValueString()
+    private void UpdateValueString()
     {
       m_NumberFormatInfo.NumberDecimalDigits = this.DecimalPlaces;
       string newValueString = this.Value.ToString("f", m_NumberFormatInfo);

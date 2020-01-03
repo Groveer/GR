@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MVVM
+namespace SharpDx
 {
   /// <summary>
   /// Interaction logic for MainWindow.xaml
@@ -24,10 +23,6 @@ namespace MVVM
     public MainWindow()
     {
       InitializeComponent();
-      Page1 page = new Page1();
-      GrdMain.Children.Add(page);
-      Img.Source = page.ToImage(page.GrdMain);
     }
-
   }
 }

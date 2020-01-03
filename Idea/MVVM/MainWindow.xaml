@@ -14,10 +14,8 @@
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Window.Resources>
-  <Grid>
-    <styles:NumericUpDown x:Name="nUpDown_hege"
-                          Minimum="0"
-                          Maximum="100"
-                          Grid.Column="1"/>
+  <Grid x:Name="GrdMain">
+    <Hyperlink.
+    <Image x:Name="Img"/>
   </Grid>
 </Window>
