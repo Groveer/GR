@@ -15,7 +15,5 @@
     </ResourceDictionary>
   </Window.Resources>
   <Grid x:Name="GrdMain">
-    <Hyperlink.
-    <Image x:Name="Img"/>
   </Grid>
 </Window>
