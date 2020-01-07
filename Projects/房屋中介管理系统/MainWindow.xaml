@@ -5,13 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:房屋中介管理系统"
         xmlns:ucs="clr-namespace:房屋中介管理系统.UCS"
-        mc:Ignorable="d"
+        mc:Ignorable="d" FontSize="14" WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="450" Width="800">
+  <Window.Resources>
+    <HierarchicalDataTemplate x:Key="ItemTemplate" ItemsSource="{Binding Nodes}">
+      <TextBlock VerticalAlignment="Center" Text="{Binding Name}"/>
+    </HierarchicalDataTemplate>
+  </Window.Resources>
   <DockPanel>
-    <Menu DockPanel.Dock="Top"/>
+    <Menu DockPanel.Dock="Top" x:Name="MenuMain" FontSize="14" ItemTemplate="{StaticResource ItemTemplate}"/>
     <ToolBar DockPanel.Dock="Top"/>
     <StatusBar DockPanel.Dock="Bottom"/>
-    <ListView DockPanel.Dock="Left"/>
+    <TreeView DockPanel.Dock="Left" x:Name="TvMenu" ItemTemplate="{StaticResource ItemTemplate}"/>
     <UniformGrid>
       
     </UniformGrid>

@@ -45,6 +45,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{DC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "房屋中介管理系统", "Projects\房屋中介管理系统\房屋中介管理系统.csproj", "{86878367-48BB-48E9-AA02-7D00F4937205}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqliteDb", "Librarys\Core\SqliteDb\SqliteDb.csproj", "{40459221-9751-496E-98F0-0F2E54574F77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{86878367-48BB-48E9-AA02-7D00F4937205}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86878367-48BB-48E9-AA02-7D00F4937205}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86878367-48BB-48E9-AA02-7D00F4937205}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40459221-9751-496E-98F0-0F2E54574F77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40459221-9751-496E-98F0-0F2E54574F77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40459221-9751-496E-98F0-0F2E54574F77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40459221-9751-496E-98F0-0F2E54574F77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -133,6 +139,7 @@ Global
 		{D1667917-8FF4-4ADB-9A9A-A984F5492C4C} = {705F62B8-DF5A-427F-A6F6-2C6188571C6A}
 		{10445ABF-8D8C-4F8D-A546-C841F1AF29ED} = {705F62B8-DF5A-427F-A6F6-2C6188571C6A}
 		{86878367-48BB-48E9-AA02-7D00F4937205} = {DC400BEA-3F75-4B91-9355-10FE3578997E}
+		{40459221-9751-496E-98F0-0F2E54574F77} = {66D36CB9-B00A-4F8C-A6FF-88FB6F69A1C2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A5F44631-1CC9-418D-8DB8-DF921C5176E3}
