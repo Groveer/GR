@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="Data.db" />
+    <None Remove="LoginWindow.xaml.cs~RFaffd9e9.TMP" />
   </ItemGroup>
 
   <ItemGroup>

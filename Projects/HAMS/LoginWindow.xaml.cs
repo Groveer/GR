@@ -34,7 +34,12 @@ namespace HAMS
       var login = Context.Logins.FirstOrDefault(t => t.Id == Convert.ToInt32(CmbUserName.SelectedValue));
       if (login.Login_Pwd== PsdPass.Password)
       {
-
+        MainWindow main = new MainWindow
+        {
+          Login = login
+        };
+        main.Show();
+        Close();
       }
     }
 

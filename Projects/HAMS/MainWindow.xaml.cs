@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
+using HAMS.UCS;
 
 namespace HAMS
 {
@@ -20,9 +23,12 @@ namespace HAMS
   /// </summary>
   public partial class MainWindow : Window
   {
+    //登录的用户
+    public Login Login { get; set; }
     public MainWindow()
     {
       InitializeComponent();
+      //添加菜单绑定资源
       List<Group> grpLst = new List<Group>()
       {
         new Group(){ID=1,Name="用户信息管理",ParentId=0},
@@ -58,9 +64,19 @@ namespace HAMS
         new Group(){ID=31,Name="清理无效信息",ParentId=8},
         new Group(){ID=32,Name="帮助文件",ParentId=9}
       };
-      var tmpLst= GetTreeData(0, grpLst);
+      var tmpLst = GetTreeData(0, grpLst);
       MenuMain.ItemsSource = tmpLst;
       TvMenu.ItemsSource = tmpLst;
+      //添加定时器 显示当前时间
+      DispatcherTimer timer = new DispatcherTimer
+      {
+        Interval = TimeSpan.FromSeconds(1)
+      };
+      timer.Tick += (sr, ev) =>
+      {
+        StbCurTime.Content = DateTime.Now.ToLongTimeString();
+      };
+      timer.Start();
     }
     /// <summary>
     /// 递归生成树形数据
@@ -73,22 +89,93 @@ namespace HAMS
       List<Group> otherNodes = nodes.Where(x => x.ParentId != parentid).ToList();
       foreach (Group grp in mainNodes)
       {
+        grp.SelectChanged += Grp_SelectChanged;
         grp.Nodes = GetTreeData(grp.ID, otherNodes);
       }
       return mainNodes;
     }
+
+    private void Grp_SelectChanged(int id)
+    {
+      GrdWork.Children.Clear();
+      switch (id)
+      {
+        case 10:
+        case 11:
+          UcPeopleList uc = new UcPeopleList();
+          GrdWork.Children.Add(uc);
+          break;
+      }
+    }
+
     private class Group
     {
+      public event Action<int> SelectChanged;
       public Group()
       {
         this.Nodes = new List<Group>();
         this.ParentId = 0;//主节点的父id默认为0
+        this.RelayCommand = new RelayCommand(SelectedMethod);
       }
-
+      private void SelectedMethod(object obj)
+      {
+        SelectChanged?.Invoke((int)obj);
+      }
       public List<Group> Nodes { get; set; }
       public int ID { get; set; }//id
       public int ParentId { get; set; }//parentID
       public string Name { get; set; }
+      public ICommand RelayCommand { get; set; }
     }
+
+    private void Window_Loaded(object sender, RoutedEventArgs e)
+    {
+      StbName.Content = Login.Login_Name;
+      StbLoginTime.Content = DateTime.Now.ToLongTimeString();
+    }
+
+  }
+
+  public class MenuButtonEnableConvert : IValueConverter
+  {
+    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+      if (targetType != typeof(int)) return false;
+
+      if ((int)value > 9) return true;
+      else return false;
+    }
+
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+      throw new NotImplementedException();
+    }
+  }
+  public class RelayCommand : ICommand
+  {
+    Action<object> execute;
+    public RelayCommand(Action<object> _execute): this()
+    {
+      //canExecute = _cancute;
+      execute = _execute;
+    }
+
+    public RelayCommand()
+    {
+    }
+
+    public bool CanExecute(object parameter)
+    {
+      return true;
+      //return parameter == null ? true : canExecute(parameter);
+    }
+
+    public event EventHandler CanExecuteChanged;
+
+    public void Execute(object parameter)
+    {
+      execute(parameter);
+    }
+
   }
 }
