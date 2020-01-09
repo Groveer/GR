@@ -4,86 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HAMS"
-        xmlns:ucs="clr-namespace:HAMS.UCS"
-        mc:Ignorable="d" FontSize="14" WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
-  <Window.Resources>
-    <local:MenuButtonEnableConvert x:Key="MBEC"/>
-    <Style x:Key="FocusVisual">
-      <Setter Property="Control.Template">
-        <Setter.Value>
-          <ControlTemplate>
-            <Rectangle Margin="2" StrokeDashArray="1 2" SnapsToDevicePixels="true" StrokeThickness="1" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-          </ControlTemplate>
-        </Setter.Value>
-      </Setter>
-    </Style>
-    <SolidColorBrush x:Key="Button.Static.Background" Color="Transparent"/>
-    <SolidColorBrush x:Key="Button.Static.Border" Color="Transparent"/>
-    <SolidColorBrush x:Key="Button.MouseOver.Background" Color="Transparent"/>
-    <SolidColorBrush x:Key="Button.MouseOver.Border" Color="Transparent"/>
-    <SolidColorBrush x:Key="Button.Pressed.Background" Color="Transparent"/>
-    <SolidColorBrush x:Key="Button.Pressed.Border" Color="Transparent"/>
-    <SolidColorBrush x:Key="Button.Disabled.Background" Color="Transparent"/>
-    <SolidColorBrush x:Key="Button.Disabled.Border" Color="Transparent"/>
-    <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="Black"/>
-    <Style x:Key="MenuButtonStyle" TargetType="{x:Type Button}">
-      <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-      <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
-      <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
-      <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-      <Setter Property="BorderThickness" Value="1"/>
-      <Setter Property="HorizontalContentAlignment" Value="Center"/>
-      <Setter Property="VerticalContentAlignment" Value="Center"/>
-      <Setter Property="Padding" Value="1"/>
-      <Setter Property="Template">
-        <Setter.Value>
-          <ControlTemplate TargetType="{x:Type Button}">
-            <Border x:Name="border" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" SnapsToDevicePixels="true">
-              <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-            </Border>
-            <ControlTemplate.Triggers>
-              <Trigger Property="IsDefaulted" Value="true">
-                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-              </Trigger>
-              <Trigger Property="IsMouseOver" Value="true">
-                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
-                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
-              </Trigger>
-              <Trigger Property="IsPressed" Value="true">
-                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
-                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
-              </Trigger>
-              <Trigger Property="IsEnabled" Value="false">
-                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
-                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
-                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
-              </Trigger>
-            </ControlTemplate.Triggers>
-          </ControlTemplate>
-        </Setter.Value>
-      </Setter>
-    </Style>
-    <HierarchicalDataTemplate x:Key="ItemTemplate" ItemsSource="{Binding Nodes}">
-      <Button VerticalAlignment="Center" Style="{StaticResource MenuButtonStyle}" 
-              Content="{Binding Name}" Command="{Binding RelayCommand}"
-              IsEnabled="{Binding ID,Converter={StaticResource MBEC}}" CommandParameter="{Binding ID}"/>
-    </HierarchicalDataTemplate>
-  </Window.Resources>
-  <DockPanel>
-    <Menu DockPanel.Dock="Top" x:Name="MenuMain" FontSize="14" ItemTemplate="{StaticResource ItemTemplate}"/>
-    <ToolBar DockPanel.Dock="Top"/>
-    <StatusBar DockPanel.Dock="Bottom">
-      <TextBlock Text="登录用户:" HorizontalAlignment="Left" Margin="10,0,0,0"/>
-      <StatusBarItem x:Name="StbName" HorizontalAlignment="Left"/>
-      <Separator Margin="20,0"/>
-      <TextBlock Text="登录时间:" HorizontalAlignment="Left"/>
-      <StatusBarItem x:Name="StbLoginTime" HorizontalAlignment="Left"/>
-      <Separator Margin="20,0"/>
-      <TextBlock Text="当前时间:" HorizontalAlignment="Left"/>
-      <StatusBarItem x:Name="StbCurTime" HorizontalAlignment="Left"/>
-    </StatusBar>
-    <TreeView DockPanel.Dock="Left" x:Name="TvMenu" ItemTemplate="{StaticResource ItemTemplate}"/>
-    <UniformGrid x:Name="GrdWork"/>
-  </DockPanel>
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+    </Grid>
 </Window>
