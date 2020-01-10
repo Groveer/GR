@@ -42,7 +42,7 @@ namespace HAMS
         new Group(){ID=9,Name="帮助",ParentId=0},
         new Group(){ID=10,Name="求租人员信息设置",ParentId=1},
         new Group(){ID=11,Name="出租人员信息设置",ParentId=1},
-        new Group(){ID=12,Name="人员信息控制",ParentId=1},
+        new Group(){ID=12,Name="人员信息管理",ParentId=1},
         new Group(){ID=13,Name="房源查询设置",ParentId=2},
         new Group(){ID=14,Name="房源状态浏览",ParentId=2},
         new Group(){ID=15,Name="求租意向设置",ParentId=2},
@@ -102,7 +102,7 @@ namespace HAMS
           {
             UcPeopleInfo uc = new UcPeopleInfo
             {
-              UserType = "求租人"
+              UserType = EUserType.Want
             };
             GrdWork.Children.Add(uc);
           }
@@ -111,7 +111,7 @@ namespace HAMS
           {
             UcPeopleInfo uc = new UcPeopleInfo
             {
-              UserType = "出租人"
+              UserType = EUserType.Lend
             };
             GrdWork.Children.Add(uc);
           }

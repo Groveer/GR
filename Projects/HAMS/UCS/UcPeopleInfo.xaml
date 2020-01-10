@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HAMS.UCS"
-             mc:Ignorable="d" Loaded="UserControl_Loaded"
+             mc:Ignorable="d" Loaded="UserControl_Loaded" Unloaded="UserControl_Unloaded"
              d:DesignHeight="330" d:DesignWidth="550">
   <Grid Margin="20">
     <Grid.RowDefinitions>
@@ -12,7 +12,7 @@
       <RowDefinition/>
       <RowDefinition Height="auto"/>
     </Grid.RowDefinitions>
-    <TextBlock Text="基本信息" FontSize="20" Margin="0,20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <TextBlock x:Name="TxtTitle" Text="基本信息" FontSize="20" Margin="0,20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
     <GroupBox Header="基本信息维护" Grid.Row="1">
       <Grid Margin="20">
         <Grid.ColumnDefinitions>
@@ -53,9 +53,9 @@
         <ColumnDefinition Width="auto"/>
         <ColumnDefinition/>
       </Grid.ColumnDefinitions>
-      <Button x:Name="BtnOK" Grid.Column="0" Content="确定" Width="100" Height="30" Margin="30,10" HorizontalAlignment="Right"/>
-      <Button x:Name="BtnInputHouse" Grid.Column="1" IsEnabled="False" Content="录入房源" Width="100" Height="30" Margin="30,10" HorizontalAlignment="Center"/>
-      <Button x:Name="BtnCancel" Grid.Column="2" Content="取消" Width="100" Height="30" Margin="30,10" HorizontalAlignment="Left"/>
+      <Button x:Name="BtnOK" IsDefault="True" Grid.Column="0" Content="确定" Width="100" Height="30" Margin="30,10" HorizontalAlignment="Right" Click="BtnOK_Click"/>
+      <Button x:Name="BtnInputHouse" Grid.Column="1" IsEnabled="False" Content="录入房源" Width="100" Height="30" Margin="30,10" HorizontalAlignment="Center" Click="BtnInputHouse_Click"/>
+      <Button x:Name="BtnClear" IsCancel="True" Grid.Column="2" Content="清空" Width="100" Height="30" Margin="30,10" HorizontalAlignment="Left" Click="BtnClear_Click"/>
     </Grid>
   </Grid>
 </UserControl>

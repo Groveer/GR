@@ -18,12 +18,10 @@ namespace HAMS
   /// </summary>
   public partial class LoginWindow : Window
   {
-    private readonly SqlContext Context;
     public LoginWindow()
     {
       InitializeComponent();
-      Context = new SqlContext();
-      CmbUserName.ItemsSource = Context.Logins.ToList();
+      CmbUserName.ItemsSource = SqlContext.Instance.Logins.ToList();
       CmbUserName.DisplayMemberPath = "Login_Name";
       CmbUserName.SelectedValuePath = "Id";
       if (CmbUserName.HasItems) CmbUserName.SelectedIndex = 0;
@@ -31,7 +29,7 @@ namespace HAMS
 
     private void BtnLogin_Click(object sender, RoutedEventArgs e)
     {
-      var login = Context.Logins.FirstOrDefault(t => t.Id == Convert.ToInt32(CmbUserName.SelectedValue));
+      var login = SqlContext.Instance.Logins.FirstOrDefault(t => t.Id == Convert.ToInt32(CmbUserName.SelectedValue));
       if (login.Login_Pwd== PsdPass.Password)
       {
         MainWindow main = new MainWindow

@@ -23,14 +23,12 @@ namespace HAMS.UCS
   public partial class UcPeopleList : UserControl
   {
     private readonly ObservableCollection<User> Users;
-    private readonly SqlContext Context;
     private User SelectUser {get;set;}
     public UcPeopleList()
     {
       InitializeComponent();
-      Context = new SqlContext();
-      Context.Users.ToList();
-      Users = Context.Users.Local.ToObservableCollection();
+      SqlContext.Instance.Users.ToList();
+      Users = SqlContext.Instance.Users.Local.ToObservableCollection();
       DgUser.ItemsSource = Users;
     }
 
@@ -40,9 +38,9 @@ namespace HAMS.UCS
       if(SelectUser!=null)
       {
         BtnDelete.IsEnabled= BtnChange.IsEnabled = true;
-        if (SelectUser.User_Type == "出租人")
+        if (SelectUser.User_Type == EUserType.Lend.ToString())
           ShowLend();
-        if (SelectUser.User_Type == "求租人")
+        if (SelectUser.User_Type == EUserType.Want.ToString())
           ShowWant();
       }
       else
@@ -63,29 +61,29 @@ namespace HAMS.UCS
 
     private void BtnChange_Click(object sender, RoutedEventArgs e)
     {
-      Context.Users.Update(SelectUser);
+      SqlContext.Instance.Users.Update(SelectUser);
     }
 
     private void TabMsg_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
       if (TabMsg.SelectedIndex == 0)
       {
-        DgUser.ItemsSource = Users.Where(s=>s.User_Type=="出租人");
+        DgUser.ItemsSource = Users.Where(s=>s.User_Type==EUserType.Lend.ToString());
       }
       else
       {
-        DgUser.ItemsSource = Users.Where(s => s.User_Type == "求租人");
+        DgUser.ItemsSource = Users.Where(s => s.User_Type == EUserType.Want.ToString());
       }
     }
 
     private void UserControl_Unloaded(object sender, RoutedEventArgs e)
     {
-      Context.SaveChangesAsync();
+      SqlContext.Instance.SaveChangesAsync();
     }
 
     private void BtnDelete_Click(object sender, RoutedEventArgs e)
     {
-      Context.Users.Remove(SelectUser);
+      SqlContext.Instance.Users.Remove(SelectUser);
     }
 
     private void BtnSearch_Click(object sender, RoutedEventArgs e)
