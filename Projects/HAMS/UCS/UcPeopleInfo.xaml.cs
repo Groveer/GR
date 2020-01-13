@@ -67,7 +67,8 @@ namespace HAMS.UCS
 
     private void BtnInputHouse_Click(object sender, RoutedEventArgs e)
     {
-
+      UcHouse house = new UcHouse();
+      GrdUc.Children.Add(house);
     }
 
     private void BtnClear_Click(object sender, RoutedEventArgs e)

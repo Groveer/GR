@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HAMS.UCS"
-             mc:Ignorable="d" 
+             mc:Ignorable="d" Background="White"
              d:DesignHeight="450" d:DesignWidth="800">
   <Grid>
     <Grid.RowDefinitions>
@@ -14,6 +14,26 @@
     </Grid.RowDefinitions>
     <TextBlock Text="House Info" Margin="10" FontSize="20" HorizontalAlignment="Center"/>
     <GroupBox Grid.Row="1" Header="房源信息" Margin="10">
+      <Grid Margin="5">
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="auto"/>
+          </Grid.ColumnDefinitions>
+          <TextBlock Text="物业名称" VerticalAlignment="Center"/>
+          <TextBox x:Name="TxtCompanyName" Padding="0,3" Grid.Column="1" VerticalAlignment="Center"/>
+          <TextBlock Text="建筑年限" Margin="30,0,0,0" Grid.Column="2" VerticalAlignment="Center"/>
+          <TextBox x:Name="TxtBuildYear" Grid.Column="3" Padding="0,3" VerticalAlignment="Center"/>
+          <TextBlock Text="建筑面积" Margin="30,0,0,0" Grid.Column="4" VerticalAlignment="Center"/>
+          <TextBox x:Name="TxtArea" Grid.Column="5" Padding="0,3" VerticalAlignment="Center"/>
+          <TextBlock Text="*" Foreground="Red" Grid.Column="6" VerticalAlignment="Center"/>
+        </Grid>
+      </Grid>
     </GroupBox>
     <Grid Grid.Row="2" Margin="10">
       <Grid.ColumnDefinitions>
@@ -22,10 +42,10 @@
         <ColumnDefinition Width="auto"/>
         <ColumnDefinition Width="auto"/>
       </Grid.ColumnDefinitions>
-      <Button x:Name="BtnChange" Width="50" Margin="5" Content="修改" HorizontalAlignment="Right"/>
-      <Button x:Name="BtnOK" Width="50" Margin="5" Grid.Column="1" Content="确定" HorizontalAlignment="Right"/>
-      <Button x:Name="BtnCancel" Width="50" Margin="5" Grid.Column="2" Content="取消" HorizontalAlignment="Right"/>
-      <Button x:Name="BtnSure" Width="60" Margin="5" Grid.Column="3" Content="就租你了" HorizontalAlignment="Right"/>
+      <Button x:Name="BtnChange" Padding="15,5" Margin="5" Content="修改" HorizontalAlignment="Right"/>
+      <Button x:Name="BtnOK" Padding="15,5" Margin="5" Grid.Column="1" Content="确定" HorizontalAlignment="Right"/>
+      <Button x:Name="BtnCancel" Padding="15,5" Margin="5" Grid.Column="2" Content="取消" HorizontalAlignment="Right" Click="BtnCancel_Click"/>
+      <Button x:Name="BtnSure" Padding="15,5" Margin="5" Grid.Column="3" Content="就租你了" HorizontalAlignment="Right"/>
     </Grid>
   </Grid>
 </UserControl>

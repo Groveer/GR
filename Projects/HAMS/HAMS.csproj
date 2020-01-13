@@ -5,11 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Data.db" />
-  </ItemGroup>
-
+  
   <ItemGroup>
     <Content Include="Data.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

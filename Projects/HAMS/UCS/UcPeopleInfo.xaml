@@ -35,16 +35,16 @@
         <TextBlock Grid.Row="1" Grid.Column="2" Text="固话：" VerticalAlignment="Center" HorizontalAlignment="Right"/>
         <TextBlock Grid.Row="2" Grid.Column="2" Text="E-mail：" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="30,0,0,0"/>
 
-        <TextBox x:Name="TxtName" Grid.Row="0" Height="30" Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
-        <ComboBox x:Name="CmbSex" Grid.Row="1" Height='30' Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Center" SelectedIndex="0">
+        <TextBox x:Name="TxtName" Grid.Row="0" Padding="0,3" Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+        <ComboBox x:Name="CmbSex" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Center" SelectedIndex="0">
           <ComboBoxItem Content="男"/>
           <ComboBoxItem Content="女"/>
         </ComboBox>
-        <DatePicker x:Name="DpkBrithday" Height="30" Grid.Row="2" Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox x:Name="TxtCardID" Height="30" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox x:Name="TxtPhone" Height="30" Grid.Row="0" Grid.Column="3" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox x:Name="TxtHomePhone" Height="30" Grid.Row="1" Grid.Column="3" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox x:Name="TxtEmail" Height="30" Grid.Row="2" Grid.Column="3" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+        <DatePicker x:Name="DpkBrithday" Grid.Row="2" Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="TxtCardID" Padding="0,3" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="TxtPhone" Padding="0,3" Grid.Row="0" Grid.Column="3" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="TxtHomePhone" Padding="0,3" Grid.Row="1" Grid.Column="3" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="TxtEmail" Padding="0,3" Grid.Row="2" Grid.Column="3" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
       </Grid>
     </GroupBox>
     <Grid Grid.Row="2">
@@ -53,9 +53,10 @@
         <ColumnDefinition Width="auto"/>
         <ColumnDefinition/>
       </Grid.ColumnDefinitions>
-      <Button x:Name="BtnOK" IsDefault="True" Grid.Column="0" Content="确定" Width="100" Height="30" Margin="30,10" HorizontalAlignment="Right" Click="BtnOK_Click"/>
-      <Button x:Name="BtnInputHouse" Grid.Column="1" IsEnabled="False" Content="录入房源" Width="100" Height="30" Margin="30,10" HorizontalAlignment="Center" Click="BtnInputHouse_Click"/>
-      <Button x:Name="BtnClear" IsCancel="True" Grid.Column="2" Content="清空" Width="100" Height="30" Margin="30,10" HorizontalAlignment="Left" Click="BtnClear_Click"/>
+      <Button x:Name="BtnOK" IsDefault="True" Grid.Column="0" Content="确定" Padding="15,5" Margin="30,10" HorizontalAlignment="Right" Click="BtnOK_Click"/>
+      <Button x:Name="BtnInputHouse" Grid.Column="1" Content="录入房源" Padding="15,5" Margin="30,10" HorizontalAlignment="Center" Click="BtnInputHouse_Click"/>
+      <Button x:Name="BtnClear" IsCancel="True" Grid.Column="2" Content="清空" Padding="15,5" Margin="30,10" HorizontalAlignment="Left" Click="BtnClear_Click"/>
     </Grid>
+    <UniformGrid x:Name="GrdUc" Grid.RowSpan="3"/>
   </Grid>
 </UserControl>

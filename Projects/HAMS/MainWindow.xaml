@@ -43,9 +43,7 @@
       <TextBlock Text="当前时间:" HorizontalAlignment="Left"/>
       <StatusBarItem x:Name="StbCurTime" HorizontalAlignment="Left"/>
     </StatusBar>
-    <TreeView DockPanel.Dock="Left" x:Name="TvMenu" ItemTemplate="{StaticResource TreeItemDataTemplate}">
-
-    </TreeView>
+    <TreeView DockPanel.Dock="Left" x:Name="TvMenu" ItemTemplate="{StaticResource TreeItemDataTemplate}" Padding="0,5"/>
     <UniformGrid x:Name="GrdWork"/>
   </DockPanel>
 </Window>

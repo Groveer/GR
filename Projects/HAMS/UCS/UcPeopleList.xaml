@@ -13,12 +13,12 @@
       <RowDefinition/>
     </Grid.RowDefinitions>
     <StackPanel Orientation="Horizontal">
-      <Button x:Name="BtnSearch" Content="查找信息" Margin="5" Width="60" Height="25" Click="BtnSearch_Click"/>
-      <Button x:Name="BtnChange" Content="修改" IsEnabled="False" Margin="5" Width="60" Height="25" Click="BtnChange_Click"/>
-      <Button x:Name="BtnDelete" Content="删除" IsEnabled="False" Margin="5" Width="60" Height="25" Click="BtnDelete_Click"/>
+      <Button x:Name="BtnSearch" Content="查找信息" Margin="5" Padding="10,5" Click="BtnSearch_Click"/>
+      <Button x:Name="BtnChange" Content="修改" IsEnabled="False" Margin="5" Padding="15,5" Click="BtnChange_Click"/>
+      <Button x:Name="BtnDelete" Content="删除" IsEnabled="False" Margin="5" Padding="15,5" Click="BtnDelete_Click"/>
     </StackPanel>
     <TabControl x:Name="TabMsg" Grid.Row="1" Margin="5" SelectionChanged="TabMsg_SelectionChanged">
-      <TabItem x:Name="TabLend" Header="出租人">
+      <TabItem x:Name="TabLend" Header="出租人" Padding="5">
         <UniformGrid Rows="2">
           <Grid>
             <Grid.ColumnDefinitions>
@@ -30,11 +30,11 @@
               <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <TextBlock Text="用户编号：" Margin="5,10,0,5" Grid.Column="0" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding User_Id}" Margin="0,10,5,5" Grid.Column="1" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding User_Id}" Padding="0,3" Margin="0,10,5,5" Grid.Column="1" VerticalAlignment="Center"/>
             <TextBlock Text="用户姓名：" Margin="5,10,0,5" Grid.Column="2" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding User_Name}" Margin="0,10,5,5" Grid.Column="3" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding User_Name}" Padding="0,3" Margin="0,10,5,5" Grid.Column="3" VerticalAlignment="Center"/>
             <TextBlock Text="固定电话：" Margin="5,10,0,5" Grid.Column="4" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding User_HomePhone}" Margin="0,10,5,5" Grid.Column="5" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding User_HomePhone}" Padding="0,3" Margin="0,10,5,5" Grid.Column="5" VerticalAlignment="Center"/>
           </Grid>
           <Grid>
             <Grid.ColumnDefinitions>
@@ -44,13 +44,13 @@
               <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <TextBlock Text="身份证号：" Margin="5,5,0,10" Grid.Column="0" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding User_CardId}" Margin="0,5,5,10" Grid.Column="1" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding User_CardId}" Padding="0,3" Margin="0,5,5,10" Grid.Column="1" VerticalAlignment="Center"/>
             <TextBlock Text="手机号：" Margin="5,5,0,10" Grid.Column="2" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding User_Phone}" Margin="0,5,5,10" Grid.Column="3" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding User_Phone}" Padding="0,3" Margin="0,5,5,10" Grid.Column="3" VerticalAlignment="Center"/>
           </Grid>
         </UniformGrid>
       </TabItem>
-      <TabItem x:Name="TabWant" Header="求租人">
+      <TabItem x:Name="TabWant" Header="求租人" Padding="5">
         <UniformGrid Rows="2">
           <Grid>
             <Grid.ColumnDefinitions>
@@ -62,11 +62,11 @@
               <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <TextBlock Text="用户编号：" Margin="5,10,0,5" Grid.Column="0" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding User_Id}" Margin="0,10,5,5" Grid.Column="1" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding User_Id}" Padding="0,3" Margin="0,10,5,5" Grid.Column="1" VerticalAlignment="Center"/>
             <TextBlock Text="用户姓名：" Margin="5,10,0,5" Grid.Column="2" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding User_Name}" Margin="0,10,5,5" Grid.Column="3" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding User_Name}" Padding="0,3" Margin="0,10,5,5" Grid.Column="3" VerticalAlignment="Center"/>
             <TextBlock Text="固定电话：" Margin="5,10,0,5" Grid.Column="4" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding User_HomePhone}" Margin="0,10,5,5" Grid.Column="5" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding User_HomePhone}" Padding="0,3" Margin="0,10,5,5" Grid.Column="5" VerticalAlignment="Center"/>
           </Grid>
           <Grid>
             <Grid.ColumnDefinitions>
@@ -76,9 +76,9 @@
               <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <TextBlock Text="身份证号：" Margin="5,5,0,10" Grid.Column="0" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding User_CardId}" Margin="0,5,5,10" Grid.Column="1" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding User_CardId}" Padding="0,3" Margin="0,5,5,10" Grid.Column="1" VerticalAlignment="Center"/>
             <TextBlock Text="手机号：" Margin="5,5,0,10" Grid.Column="2" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding User_Phone}" Margin="0,5,5,10" Grid.Column="3" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding User_Phone}" Padding="0,3" Margin="0,5,5,10" Grid.Column="3" VerticalAlignment="Center"/>
           </Grid>
         </UniformGrid>
       </TabItem>
