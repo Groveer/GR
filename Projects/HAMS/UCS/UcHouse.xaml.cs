@@ -22,6 +22,7 @@ namespace HAMS.UCS
     public UcHouse()
     {
       InitializeComponent();
+      GrpMsg.Visibility = Visibility.Hidden;
     }
 
     private void BtnCancel_Click(object sender, RoutedEventArgs e)
@@ -30,6 +31,11 @@ namespace HAMS.UCS
       {
         grid.Children.Clear();
       }
+    }
+
+    private void BtnType_Click(object sender, RoutedEventArgs e)
+    {
+
     }
   }
 }

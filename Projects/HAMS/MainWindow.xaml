@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:HAMS"
         xmlns:ucs="clr-namespace:HAMS.UCS"
         mc:Ignorable="d" FontSize="14" WindowStartupLocation="CenterScreen"
-        MinWidth="800" MinHeight="500"
+        MinWidth="900" MinHeight="600"
         Title="房屋中介管理系统" Height="600" Width="900" Loaded="Window_Loaded">
   <Window.Resources>
     <HierarchicalDataTemplate x:Key="MenuItemDataTemplate" ItemsSource="{Binding Nodes}">
