@@ -23,16 +23,13 @@ namespace WpfApp
     public MainWindow()
     {
       InitializeComponent();
-      List<int> lst = new List<int>()
-      {
-        1,2,4,3,5,8
-      };
-      //Lbx.ItemsSource = lst;
-      foreach(var n in lst)
-      {
-        Lbx.Items.Add(n);
-      }
-      Lbx.SelectedItem = 2;
+    }
+
+    private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+      //MediaPlayer player1 = new MediaPlayer();
+      //player1.Open(new Uri(curDirectory + "/Test.mp3"));
+      //player1.Play();
     }
   }
 }

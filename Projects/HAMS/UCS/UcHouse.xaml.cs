@@ -35,6 +35,7 @@ namespace HAMS.UCS
 
     private void BtnType_Click(object sender, RoutedEventArgs e)
     {
+      
 
     }
   }

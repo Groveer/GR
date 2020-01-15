@@ -91,5 +91,21 @@
       <Button x:Name="BtnCancel" Padding="15,5" Margin="5" Grid.Column="2" Content="取消" HorizontalAlignment="Right" Click="BtnCancel_Click"/>
       <Button x:Name="BtnSure" Padding="15,5" Margin="5" Grid.Column="3" Content="就租你了" HorizontalAlignment="Right"/>
     </Grid>
+    <Popup x:Name="Pop" Width="200" Height="200" StaysOpen="False" IsOpen="False"
+           AllowsTransparency="True" PopupAnimation="Slide" VerticalOffset="10" HorizontalOffset="10">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="2*"/>
+          <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <TreeView/>
+        <Grid Grid.Column="1">
+          <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+          </Grid.RowDefinitions>
+        </Grid>
+      </Grid>
+    </Popup>
   </Grid>
 </UserControl>
