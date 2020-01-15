@@ -12,7 +12,7 @@
       <RowDefinition Height="*"/>
       <RowDefinition Height="auto"/>
     </Grid.RowDefinitions>
-    <TextBlock Text="House Info" Margin="10" FontSize="20" HorizontalAlignment="Center"/>
+    <TextBlock x:Name="TxtHouseInfo" Text="House Info" Margin="10" FontSize="20" HorizontalAlignment="Center"/>
     <GroupBox Grid.Row="1" Header="房源信息" Margin="10">
       <Grid Margin="10">
         <Grid.RowDefinitions>
@@ -52,18 +52,18 @@
         <ComboBox x:Name="CmbType" Grid.Row="1" Grid.Column="1" Margin="10,5" Height="22" VerticalAlignment="Center"/>
         <ComboBox x:Name="CmbFloor" Grid.Row="2" Grid.Column="1" Margin="10,5" Height="22" VerticalAlignment="Center"/>
         <ComboBox x:Name="CmbFavor" Grid.Row="3" Grid.Column="1" Margin="10,5" Height="22" VerticalAlignment="Center"/>
-        <Button x:Name="BtnType" Content="..." Click="BtnType_Click" Width="20" Grid.Row="1" Grid.Column="2" Height="22" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-        <Button x:Name="BtnFloor" Content="..." Width="20" Grid.Row="2" Grid.Column="2" Height="22" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-        <Button x:Name="BtnFavor" Content="..." Width="20" Grid.Row="3" Grid.Column="2" Height="22" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <Button x:Name="BtnType" Content="..." Click="BtnInfo_Click" Width="20" Grid.Row="1" Grid.Column="2" Height="22" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <Button x:Name="BtnFloor" Content="..." Click="BtnInfo_Click" Width="20" Grid.Row="2" Grid.Column="2" Height="22" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <Button x:Name="BtnFavor" Content="..." Click="BtnInfo_Click" Width="20" Grid.Row="3" Grid.Column="2" Height="22" VerticalAlignment="Center" HorizontalAlignment="Left"/>
         <TextBlock Text="幢/座" Grid.Row="1" Grid.Column="3" Margin="10,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
         <TextBlock Text="用途" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right"/>
         <TextBlock Text="装修" Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right"/>
         <ComboBox x:Name="CmbSeat" Grid.Row="1" Grid.Column="4" Margin="10,5" Height="22" VerticalAlignment="Center"/>
-        <ComboBox x:Name="CmbMothed" Grid.Row="2" Grid.Column="4" Margin="10,5" Height="22" VerticalAlignment="Center"/>
+        <ComboBox x:Name="CmbMethod" Grid.Row="2" Grid.Column="4" Margin="10,5" Height="22" VerticalAlignment="Center"/>
         <ComboBox x:Name="CmbFitment" Grid.Row="3" Grid.Column="4" Margin="10,5" Height="22" VerticalAlignment="Center"/>
-        <Button x:Name="BtnSeat" Content="..." Width="20" Grid.Row="1" Grid.Column="5" Height="22" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-        <Button x:Name="BtnMothed" Content="..." Width="20" Grid.Row="2" Grid.Column="5" Height="22" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-        <Button x:Name="BtnFitment" Content="..." Width="20" Grid.Row="3" Grid.Column="5" Height="22" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <Button x:Name="BtnSeat" Content="..." Click="BtnInfo_Click" Width="20" Grid.Row="1" Grid.Column="5" Height="22" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <Button x:Name="BtnMothed" Content="..." Click="BtnInfo_Click" Width="20" Grid.Row="2" Grid.Column="5" Height="22" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <Button x:Name="BtnFitment" Content="..." Click="BtnInfo_Click" Width="20" Grid.Row="3" Grid.Column="5" Height="22" VerticalAlignment="Center" HorizontalAlignment="Left"/>
         
         <GroupBox Header="备注" Grid.Row="4" Grid.ColumnSpan="3" Margin="10,0,50,0">
           
@@ -71,7 +71,7 @@
         <GroupBox x:Name="GrpMap" Header="结构图" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="2">
           <Image x:Name="ImgMap"/>
         </GroupBox>
-        <GroupBox x:Name="GrpMsg" Header="找到与你信息相符得信息" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="2">
+        <GroupBox x:Name="GrpResult" Header="找到与你信息相符得信息" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="2">
           <DataGrid/>
         </GroupBox>
         <TextBlock Text="每月单价" Grid.Row="5" VerticalAlignment="Center"/>
@@ -91,19 +91,43 @@
       <Button x:Name="BtnCancel" Padding="15,5" Margin="5" Grid.Column="2" Content="取消" HorizontalAlignment="Right" Click="BtnCancel_Click"/>
       <Button x:Name="BtnSure" Padding="15,5" Margin="5" Grid.Column="3" Content="就租你了" HorizontalAlignment="Right"/>
     </Grid>
-    <Popup x:Name="Pop" Width="200" Height="200" StaysOpen="False" IsOpen="False"
-           AllowsTransparency="True" PopupAnimation="Slide" VerticalOffset="10" HorizontalOffset="10">
-      <Grid>
+    <Popup x:Name="Pop" Width="300" Height="180" StaysOpen="False" IsOpen="False"
+           AllowsTransparency="True">
+      <Grid Background="White">
         <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="2*"/>
+          <ColumnDefinition Width="1.8*"/>
           <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <TreeView/>
-        <Grid Grid.Column="1">
+        <ListView x:Name="LstInfo" Margin="2"/>
+        <Grid Grid.Column="1" Margin="2">
           <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="auto"/>
           </Grid.RowDefinitions>
+          <GroupBox Header="信息">
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+              </Grid.ColumnDefinitions>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+              </Grid.RowDefinitions>
+              <TextBlock Text="编号：" Margin="10,5,2,5" VerticalAlignment="Center"/>
+              <TextBlock x:Name="TxtInfoLbl" Grid.Row="1" Margin="10,5,2,5" VerticalAlignment="Center"/>
+              <TextBlock Text="备注：" Grid.Row="2" Margin="10,5,2,5" VerticalAlignment="Center"/>
+              <TextBox x:Name="TxtId" Grid.Row="0" Grid.Column="1" Margin="2,5,10,5" VerticalAlignment="Center"/>
+              <TextBox x:Name="TxtInfo" Grid.Row="1" Grid.Column="1" Margin="2,5,10,5" VerticalAlignment="Center"/>
+              <TextBox x:Name="TxtRemark" Grid.Row="2" Grid.Column="1" TextWrapping="WrapWithOverflow" Margin="2,5,10,5"/>
+            </Grid>
+          </GroupBox>
+          <UniformGrid Columns="3" Grid.Row="1">
+            <Button x:Name="BtnAdd" Content="添加" Margin="5,2" Click="BtnAdd_Click"/>
+            <Button x:Name="BtnUpdate" Content="更新" Margin="5,2" Click="BtnUpdate_Click"/>
+            <Button x:Name="BtnDelete" Content="删除" Margin="5,2" Click="BtnDelete_Click"/>
+          </UniformGrid>
         </Grid>
       </Grid>
     </Popup>
