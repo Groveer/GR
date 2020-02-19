@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApp
+namespace DataGrid背景问题
 {
   /// <summary>
   /// Interaction logic for MainWindow.xaml
@@ -23,18 +24,18 @@ namespace WpfApp
     public MainWindow()
     {
       InitializeComponent();
-      for(int i=0;i<10;i++)
-      {
-        Rectangle rect = new Rectangle
-        {
-          Margin=new Thickness(5),
-          Width = 60,
-          Height = 40,
-          Fill = Brushes.Blue
-        };
-        Wpl.Children.Add(rect);
-      }
+      DataTable dt = new DataTable();
+      dt.Columns.Add("A", typeof(string));
+      dt.Columns.Add("B", typeof(string));
+      DataRow row = dt.NewRow();
+      row["A"] = "A1";
+      row["B"] = "B1";
+      dt.Rows.Add(row);
+      row = dt.NewRow();
+      row["A"] = "A2";
+      row["B"] = "B2";
+      dt.Rows.Add(row);
+      DgTest.ItemsSource = dt.DefaultView;
     }
-    
   }
 }

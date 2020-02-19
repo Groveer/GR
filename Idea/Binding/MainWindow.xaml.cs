@@ -24,7 +24,6 @@ namespace Binding
     public MainWindow()
     {
       InitializeComponent();
-      InitializeComponent();
       DataTable dt = new DataTable();
       dt.Columns.Add("ID", typeof(int));
       dt.Columns.Add("Name", typeof(string));

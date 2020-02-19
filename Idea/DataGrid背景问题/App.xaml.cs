@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace HAMS
+namespace DataGrid背景问题
 {
   /// <summary>
   /// Interaction logic for App.xaml
